@@ -2,7 +2,7 @@
 
 For a fully guided walk through of setting up and configuring this sample, see the [Continuous Integration Using Salesforce DX](https://trailhead.salesforce.com/modules/sfdx_travis_ci) Trailhead module.
 
-This repository shows one way you can successfully setup Salesforce DX with Jenkins. We make a few assumptions in this README:
+This repository shows how to successfully setup deploying to non-scratch orgs (i.e. Sandbox or Production) with Jenkins. We make a few assumptions in this README:
 
 - You know how to get your repository setup with Jenkins. (Here's their [Getting Started guide](https://jenkins.io/doc/pipeline/tour/getting-started/).)
 - You have properly setup JWT-Based Authorization Flow (i.e. headless). We recommended using [these steps for generating your Self-Signed SSL Certificate](https://devcenter.heroku.com/articles/ssl-certificate-self). 
@@ -10,32 +10,32 @@ This repository shows one way you can successfully setup Salesforce DX with Jenk
 If any any of these assumptions aren't true, the following steps won't work.
 
 ## Getting Started
+1) [Fork](http://help.github.com/fork-a-repo/) this repo into your GitHub account using the fork link at the top of the page.
 
-1) Make sure you have the Salesforce CLI installed. Check by running `sfdx force --help` and confirm you see the command output. If you don't have it installed you can download and install it from [here](https://developer.salesforce.com/tools/sfdxcli).
+2) Clone your forked repo locally: `git clone https://github.com/<git_username>/sfdx-jenkins-org.git`
 
-2) Confirm you can perform a JWT-based auth: `sfdx force:auth:jwt:grant --clientid <your_consumer_key> --jwtkeyfile server.key --username <your_username> --setdefaultdevhubusername`
+3) Make sure you have the Salesforce CLI installed. Check by running `sfdx force --help` and confirm you see the command output. If you don't have it installed you can download and install it from [here](https://developer.salesforce.com/tools/sfdxcli).
+
+4) Setup a JWT-based auth flow for the target orgs that you want to deploy to.  This step will create a server.key file that will be used in subsequent steps.
+(https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm)  
+
+5) Confirm you can perform a JWT-based auth to the target orgs: `sfdx force:auth:jwt:grant --clientid <your_consumer_key> --jwtkeyfile server.key --username <your_username>`
 
    **Note:** For more info on setting up JWT-based auth see [Authorize an Org Using the JWT-Based Flow](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) in the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev).
+  
+6) From your JWT-Based connected app on Salesforce, retrieve the generated `Consumer Key`.
 
-3) [Fork](http://help.github.com/fork-a-repo/) this repo into your GitHub account using the fork link at the top of the page.
-
-4) Clone your forked repo locally: `git clone https://github.com/<git_username>/sfdx-jenkins-org.git`
-   
-5) From your JWT-Based connected app on Salesforce, retrieve the generated `Consumer Key`.
-
-6) Setup Jenkins [environment variables](https://jenkins.io/doc/book/using/using-credentials/) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
+7) Setup Jenkins [environment variables](https://jenkins.io/doc/book/using/using-credentials/) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
 
     Create an environment variable named `SF_CONSUMER_KEY`.
 
     Create an environment variable named `SF_USERNAME`.
 
-7) Store your `server.key` file that you generated previously as a Jenkins Secret File using the [Jenkins Admin Credentials interface](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin). Make note of the new entry’s ID.
+8) Store your `server.key` file that you generated previously as a Jenkins Secret File using the [Jenkins Admin Credentials interface](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin). Make note of the new entry’s ID.
 
-8) Setup Jenkins [environment variable](https://gitlab.com/help/ci/variables/README#variables) to store the ID of the secret file you created.
+9) Setup Jenkins [environment variable](https://gitlab.com/help/ci/variables/README#variables) to store the ID of the secret file you created.
 
     Create an environment variable named `SERVER_KEY_CREDENTALS_ID`.
-
-9) IMPORTANT! Don't check in your `server.key` file to git. You should never store keys or certificates in a public place.
 
 10) Create a Jenkins pipline with the `Jenkinsfile` included in the root directory of the git repository.
 

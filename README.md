@@ -16,28 +16,30 @@ If any any of these assumptions aren't true, the following steps won't work.
 
 3) Make sure you have the Salesforce CLI installed. Check by running `sfdx force --help` and confirm you see the command output. If you don't have it installed you can download and install it from [here](https://developer.salesforce.com/tools/sfdxcli).
 
-4) Setup a JWT-based auth flow for the target orgs that you want to deploy to.  This step will create a server.key file that will be used in subsequent steps.
+4) Setup a [custom tool](https://wiki.jenkins.io/display/JENKINS/Custom+Tools+Plugin) in Jenkins for the Salesforce CLI. Name the custom tool `toolbelt` and set its installation directory to the path where the `sfdx` executable is (e.g., `/usr/local/bin/sfdx`).
+
+5) Setup a JWT-based auth flow for the target orgs that you want to deploy to.  This step will create a server.key file that will be used in subsequent steps.
 (https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm)  
 
-5) Confirm you can perform a JWT-based auth to the target orgs: `sfdx force:auth:jwt:grant --clientid <your_consumer_key> --jwtkeyfile server.key --username <your_username>`
+6) Confirm you can perform a JWT-based auth to the target orgs: `sfdx force:auth:jwt:grant --clientid <your_consumer_key> --jwtkeyfile server.key --username <your_username>`
 
    **Note:** For more info on setting up JWT-based auth see [Authorize an Org Using the JWT-Based Flow](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) in the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev).
   
-6) From your JWT-Based connected app on Salesforce, retrieve the generated `Consumer Key`.
+7) From your JWT-Based connected app on Salesforce, retrieve the generated `Consumer Key`.
 
-7) Setup Jenkins [environment variables](https://jenkins.io/doc/book/using/using-credentials/) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
+8) Setup Jenkins [environment variables](https://jenkins.io/doc/book/using/using-credentials/) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
 
     Create an environment variable named `SF_CONSUMER_KEY`.
 
     Create an environment variable named `SF_USERNAME`.
 
-8) Store your `server.key` file that you generated previously as a Jenkins Secret File using the [Jenkins Admin Credentials interface](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin). Make note of the new entry’s ID.
+9) Store your `server.key` file that you generated previously as a Jenkins Secret File using the [Jenkins Admin Credentials interface](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin). Make note of the new entry’s ID.
 
-9) Setup Jenkins [environment variable](https://gitlab.com/help/ci/variables/README#variables) to store the ID of the secret file you created.
+10) Setup Jenkins [environment variable](https://gitlab.com/help/ci/variables/README#variables) to store the ID of the secret file you created.
 
     Create an environment variable named `SERVER_KEY_CREDENTALS_ID`.
 
-10) Create a Jenkins pipline with the `Jenkinsfile` included in the root directory of the git repository.
+11) Create a Jenkins pipline with the `Jenkinsfile` included in the root directory of the git repository.
 
 And you should be ready to go! Now when you commit and push a change, your change will kick off a Jenkins build.
 

@@ -27,7 +27,7 @@ If any any of these assumptions aren't true, the following steps won't work.
   
 7) From your JWT-Based connected app on Salesforce, retrieve the generated `Consumer Key`.
 
-8) Setup Jenkins [environment variables](https://jenkins.io/doc/book/using/using-credentials/) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
+8) Setup Jenkins [global environment variables](https://wiki.jenkins.io/display/JENKINS/Global+Variable+String+Parameter+Plugin) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
 
     Create an environment variable named `SF_CONSUMER_KEY`.
 
@@ -35,7 +35,7 @@ If any any of these assumptions aren't true, the following steps won't work.
 
 9) Store your `server.key` file that you generated previously as a Jenkins Secret File using the [Jenkins Admin Credentials interface](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin). Make note of the new entry’s ID.
 
-10) Setup Jenkins [environment variable](https://gitlab.com/help/ci/variables/README#variables) to store the ID of the secret file you created.
+10) Setup Jenkins [global environment variable](https://wiki.jenkins.io/display/JENKINS/Global+Variable+String+Parameter+Plugin) to store the ID of the secret file you created.
 
     Create an environment variable named `SERVER_KEY_CREDENTALS_ID`.
 

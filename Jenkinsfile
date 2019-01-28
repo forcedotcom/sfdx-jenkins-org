@@ -66,7 +66,7 @@ node {
     }
 }
 
-def command(command) {
+def command(script) {
     if (isUnix()) {
         return sh(returnStatus: true, script: script);
     } else {

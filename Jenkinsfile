@@ -1,7 +1,5 @@
 #!groovy
 
-import groovy.json.JsonSlurperClassic
-
 node {
 
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY

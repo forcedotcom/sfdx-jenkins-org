@@ -5,6 +5,7 @@ For a fully guided walk through of setting up and configuring this sample, see t
 This repository shows how to successfully setup deploying to non-scratch orgs (i.e. Sandbox or Production) with Jenkins. We make a few assumptions in this README:
 
 - You know how to get your repository setup with Jenkins. (Here's their [Getting Started guide](https://jenkins.io/doc/pipeline/tour/getting-started/).)
+
 - You have properly setup JWT-Based Authorization Flow (i.e. headless). We recommended using [these steps for generating your Self-Signed SSL Certificate](https://devcenter.heroku.com/articles/ssl-certificate-self). 
 
 If any any of these assumptions aren't true, the following steps won't work.

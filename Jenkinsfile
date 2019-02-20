@@ -13,7 +13,7 @@ node {
 
 
     // -------------------------------------------------------------------------
-    // Checkout code from source control.
+    // Check out code from source control.
     // -------------------------------------------------------------------------
 
     stage('checkout source') {
@@ -22,13 +22,13 @@ node {
 
 
     // -------------------------------------------------------------------------
-    // Run all of the enclosed stages with access to the Salesforce
+    // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
     withCredentials([file(credentialsId: SERVER_KEY_CREDENTALS_ID, variable: 'server_key_file')]) {
         // -------------------------------------------------------------------------
-        // Authenticate to Salesforce using server key.
+        // Authenticate to Salesforce using the server key.
         // -------------------------------------------------------------------------
 
         stage('Authorize to Salesforce') {
@@ -52,7 +52,7 @@ node {
 
 
         // -------------------------------------------------------------------------
-        // Example shows how to run a check only deploy.
+        // Example shows how to run a check-only deploy.
         // -------------------------------------------------------------------------
 
         //stage('Check Only Deploy') {

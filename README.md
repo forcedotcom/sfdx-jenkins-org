@@ -6,7 +6,7 @@ This repository shows how to successfully setup deploying to non-scratch orgs (s
 
 - You know how to set up your repository with Jenkins. (Need help? See the [Getting Started guide](https://jenkins.io/doc/pipeline/tour/getting-started/).)
 
-- You have properly set up the JWT-based authorization flow (headless). We recommended using [these steps for generating your self-signed SSL certificate](https://devcenter.heroku.com/articles/ssl-certificate-self). 
+- You have properly set up the JWT-based authorization flow (headless). We recommended using [these steps for generating your self-signed SSL certificate](https://devcenter.heroku.com/articles/ssl-certificate-self).
 
 ## Getting Started
 1) [Fork](http://help.github.com/fork-a-repo/) this repo in to your GitHub account using the fork link at the top of the page.
@@ -18,12 +18,12 @@ This repository shows how to successfully setup deploying to non-scratch orgs (s
 4) Set up a [custom tool](https://wiki.jenkins.io/display/JENKINS/Custom+Tools+Plugin) in Jenkins for Salesforce CLI. Name the custom tool `toolbelt` and set its installation directory to the path where the `sfdx` executable is (for example, `/usr/local/bin/sfdx`).
 
 5) Set up a JWT-based auth flow for the target orgs that you want to deploy to. This step creates a `server.key` file that is used in subsequent steps.
-(https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm)  
+(https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm)
 
 6) Confirm that you can perform a JWT-based auth to the target orgs: `sfdx force:auth:jwt:grant --clientid <your_consumer_key> --jwtkeyfile server.key --username <your_username>`
 
    **Note:** For more info on setting up JWT-based auth, see [Authorize an Org Using the JWT-Based Flow](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_jwt_flow.htm) in the [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev).
-  
+
 7) From your JWT-based connected app on Salesforce, retrieve the generated `Consumer Key`.
 
 8) Set up Jenkins [global environment variables](https://wiki.jenkins.io/display/JENKINS/Global+Variable+String+Parameter+Plugin) for your Salesforce `Consumer Key` and `Username`. Note that this username is the username that you use to access your Salesforce org.
@@ -36,7 +36,7 @@ This repository shows how to successfully setup deploying to non-scratch orgs (s
 
 10) Set up Jenkins [global environment variable](https://wiki.jenkins.io/display/JENKINS/Global+Variable+String+Parameter+Plugin) to store the ID of the secret file you created.
 
-    Create an environment variable named `SERVER_KEY_CREDENTALS_ID`.
+    Create an environment variable named `SERVER_KEY_CREDENTIALS_ID`.
 
 11) Create a Jenkins pipeline with the `Jenkinsfile` included in the root directory of the Git repository.
 
@@ -46,7 +46,7 @@ Enjoy!
 
 ## Contributing to the Repository ###
 
-If you find any issues or opportunities for improving this repository, fix them! Feel free to contribute to this project by [forking](http://help.github.com/fork-a-repo/) this repository and making changes to the content. Once you've made your changes, share them back with the community by sending a pull request. See [How to send pull requests](http://help.github.com/send-pull-requests/) for more information about contributing to GitHub projects.
+If you find any issues or opportunities for improving this repository, fix them! Feel free to contribute to this project by [forking](http://help.github.com/fork-a-repo/) this repository and making changes to the content. Once you've made your changes, share them back with the community by sending a pull request. See [How to create pull requests](https://help.github.com/en/articles/creating-a-pull-request/) for more information about contributing to GitHub projects.
 
 ## Reporting Issues ###
 

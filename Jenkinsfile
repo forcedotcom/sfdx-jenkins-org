@@ -32,11 +32,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Authorize to Salesforce') {
-            echo "clientid"
-			echo "${SF_CONSUMER_KEY}"
-			echo "${server_key_file}"
-			echo "${SF_USERNAME}"
-			
+            
 			rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
             if (rc != 0) {
                 error 'Salesforce org authorization failed.'

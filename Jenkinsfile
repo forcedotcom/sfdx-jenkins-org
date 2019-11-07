@@ -10,7 +10,7 @@ node {
 
 
     def toolbelt = tool 'toolbelt'
-	def sfdxexe = 'C:\Program Files\Salesforce CLI\bin\sfdx'
+	def sfdxexe = 'C:\\Program Files\\Salesforce CLI\\bin\\sfdx'
 
 
     // -------------------------------------------------------------------------

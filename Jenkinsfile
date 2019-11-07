@@ -46,7 +46,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Deploy and Run Tests') {
-            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+            rc = bat returnStatus: true, script: "\"${sfdxexe}\" force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
             if (rc != 0) {
                 error 'Salesforce deploy and test run failed.'
             }
@@ -58,7 +58,7 @@ node {
         // -------------------------------------------------------------------------
 
         //stage('Check Only Deploy') {
-        //    rc = command "${toolbelt}/sfdx force:mdapi:deploy --checkonly --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+        //    rc = bat returnStatus: true, script: "\"${sfdxexe}\" force:mdapi:deploy --checkonly --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
         //    if (rc != 0) {
         //        error 'Salesforce deploy failed.'
         //    }

@@ -33,7 +33,7 @@ node {
 
         stage('Authorize to Salesforce') {
             
-			rc = bat returnStatus: true, script: "\"${toolbelt}/sfdx\" force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
+			rc = bat returnStatus: true, script: "\"${toolbelt}sfdx.cmd\" force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
             if (rc != 0) {
                 error 'Salesforce org authorization failed.'
             }

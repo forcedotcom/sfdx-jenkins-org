@@ -2,8 +2,8 @@
 
 node {
 
-    def SF_CONSUMER_KEY='3MVG9szVa2RxsqBb2BVbPH5qUdCLSsGCTFgJB8EcU0xLXgX8LQylKcc59g66aQNjABHD9BKWE0FsZnkvx2l9d'              //env.SF_CONSUMER_KEY
-    def SF_USERNAME='edw.sfdc@gmail.com'                       //env.SF_USERNAME
+    def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
+    def SF_USERNAME=env.SF_USERNAME
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='src'
     def TEST_LEVEL='RunLocalTests'

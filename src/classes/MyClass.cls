@@ -8,6 +8,6 @@ public with sharing class MyClass {
 	System.debug('getAppVersion called');
 	System.debug('Jinling Test, getAppVersion called');
 
-		return '2.0.0';
+		return '1.0.0';
 	}
 }

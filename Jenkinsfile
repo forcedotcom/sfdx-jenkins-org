@@ -10,6 +10,7 @@ node {
 
 
     def toolbelt = tool 'toolbelt'
+	def sfdxexe = 'C:\\Program Files\\Salesforce CLI\\bin\\sfdx'
 
 
     // -------------------------------------------------------------------------
@@ -32,7 +33,8 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Authorize to Salesforce') {
-            rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl https://test.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
+            
+			rc = bat returnStatus: true, script: "\"${sfdxexe}\" force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
             if (rc != 0) {
                 error 'Salesforce org authorization failed.'
             }
@@ -44,7 +46,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Deploy and Run Tests') {
-            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+            rc = bat returnStatus: true, script: "\"${sfdxexe}\" force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
             if (rc != 0) {
                 error 'Salesforce deploy and test run failed.'
             }
@@ -56,7 +58,7 @@ node {
         // -------------------------------------------------------------------------
 
         //stage('Check Only Deploy') {
-        //    rc = command "${toolbelt}/sfdx force:mdapi:deploy --checkonly --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
+        //    rc = bat returnStatus: true, script: "\"${sfdxexe}\" force:mdapi:deploy --checkonly --wait 10 --deploydir ${DEPLOYDIR} --targetusername UAT --testlevel ${TEST_LEVEL}"
         //    if (rc != 0) {
         //        error 'Salesforce deploy failed.'
         //    }

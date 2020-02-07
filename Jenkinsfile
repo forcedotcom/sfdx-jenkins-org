@@ -25,8 +25,8 @@ node {
     }
 
 	stage('copy files to local workspace'){
-		//sh label: '', script: 'mkdir ${WORKSPACE}/${env.JOB_NAME}/srcCopy
-		sh label: '', script: 'cp -r ${DEPLOYDIR} srcCopy'
+		sh label: '', script: 'mkdir ${WORKSPACE}/${env.JOB_NAME}/srcCopy
+		//sh label: '', script: 'cp -r ${DEPLOYDIR} srcCopy'
 	}
 	
 

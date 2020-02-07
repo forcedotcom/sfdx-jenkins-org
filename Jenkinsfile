@@ -7,10 +7,14 @@ node {
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='src'
     def TEST_LEVEL='NoTestRun'
+    def WORKSPACE = env.WORKSPACE
 
 
     def toolbelt = tool 'toolbelt'
 
+	
+	
+	
 
     // -------------------------------------------------------------------------
     // Check out code from source control.
@@ -20,6 +24,11 @@ node {
         checkout scm
     }
 
+	stage('copy files to local workspace'){
+		//sh label: '', script: 'mkdir ${WORKSPACE}/${env.JOB_NAME}/srcCopy
+		sh label: '', script: 'cp -r ${DEPLOYDIR} srcCopy'
+	}
+	
 
     // -------------------------------------------------------------------------
     // Run all the enclosed stages with access to the Salesforce
@@ -46,7 +55,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Deploy and Run Tests') {
-            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir ${DEPLOYDIR} --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
+            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir srcCopy --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
             if (rc != 0) {
                 error 'Salesforce deploy and test run failed.'
             }

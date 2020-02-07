@@ -27,7 +27,7 @@ node {
 	stage('copy files to local workspace'){
 		echo "${env.JOB_NAME}"
 		echo "${WORKSPACE}"
-		sh 'mkdir ${WORKSPACE}/src_copy'
+		sh 'mkdir -p ${WORKSPACE}/src_copy'
 		sh 'cp -R ${DEPLOYDIR} src_copy'
 	}
 	
@@ -57,7 +57,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Deploy and Run Tests') {
-            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir src --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
+            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir src_copy/${DEPLOYDIR} --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
             if (rc != 0) {
                 error 'Salesforce deploy and test run failed.'
             }

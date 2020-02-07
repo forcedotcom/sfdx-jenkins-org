@@ -6,7 +6,7 @@ node {
     def SF_USERNAME=env.SF_USERNAME
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='src'
-    def TEST_LEVEL='RunLocalTests'
+    def TEST_LEVEL='NoTestRun'
 
 
     def toolbelt = tool 'toolbelt'
@@ -25,7 +25,7 @@ node {
     // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
     // -------------------------------------------------------------------------
-withEnv(["HOME=${env.WORKSPACE}"]) {
+
     withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
         // -------------------------------------------------------------------------
         // Authenticate to Salesforce using the server key.
@@ -62,7 +62,7 @@ withEnv(["HOME=${env.WORKSPACE}"]) {
         //    }
         //}
     }
-}
+
 }
 	
 

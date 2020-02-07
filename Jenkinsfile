@@ -28,7 +28,7 @@ node {
 		echo "${env.JOB_NAME}"
 		echo "${WORKSPACE}"
 		sh 'mkdir ${WORKSPACE}/src_copy'
-		sh 'cp -R src src_copy'
+		sh 'cp -R ${DEPLOYDIR} src_copy'
 	}
 	
 

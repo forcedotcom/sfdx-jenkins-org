@@ -27,8 +27,8 @@ node {
 	stage('copy files to local workspace'){
 		echo "${env.JOB_NAME}"
 		echo "${WORKSPACE}"
-		sh 'mkdir ${WORKSPACE}/srcCopy'
-		sh 'cp -R ${DEPLOYDIR} srcCopy'
+		sh 'mkdir ${WORKSPACE}/srccopy'
+		sh 'cp -R src srccopy'
 	}
 	
 

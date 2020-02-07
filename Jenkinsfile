@@ -43,7 +43,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Authorize to Salesforce') {
-            rl = command "${toolbelt}/sfdx force:auth:logout --u ${SF_USERNAME}"
+            rl = command "${toolbelt}/sfdx force:auth:logout -u ${SF_USERNAME}"
 	
 	    rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl https://login.salesforce.com --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
             if (rc != 0) {

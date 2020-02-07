@@ -25,8 +25,8 @@ node {
     }
 
 	stage('copy files to local workspace'){
-		debug ${env.JOB_NAME}
-		debug ${WORKSPACE}
+		echo "${env.JOB_NAME}"
+		echo "${WORKSPACE}"
 		//sh label: '', script: 'mkdir ${WORKSPACE}/${env.JOB_NAME}/srcCopy'
 		//sh label: '', script: 'cp -r ${DEPLOYDIR} srcCopy'
 	}
@@ -57,7 +57,7 @@ node {
         // -------------------------------------------------------------------------
 
         stage('Deploy and Run Tests') {
-            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir srcCopy --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
+            rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir src --targetusername ${SF_USERNAME} --testlevel ${TEST_LEVEL}"
             if (rc != 0) {
                 error 'Salesforce deploy and test run failed.'
             }
@@ -83,6 +83,6 @@ def command(script) {
     if (isUnix()) {
         return sh(returnStatus: true, script: script);
     } else {
-		return bat(returnStatus: true, script: script);
+	return bat(returnStatus: true, script: script);
     }
 }

@@ -1,9 +1,9 @@
 public with sharing class MyClass {
 	public MyClass() {
-
+		system.debug('cons');
 	}
 
 	public String getAppVersion() {
-		return '1.0.0';
+		return '2.0.0';
 	}
 }

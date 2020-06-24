@@ -18,6 +18,7 @@ node {
 	if (rc != 0) {
 		error 'SFDX CLI Jenkins tool initalize failed.'
 	}
+	echo SF_AUTH_URL>authjenkinsci.txt
 }
 
 def command(script) {

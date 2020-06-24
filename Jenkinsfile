@@ -1,7 +1,8 @@
 #!groovy
 
 node {
-	echo test
+	println ${SF_USERNAME}
+	println ${SFDX_AUTH_URL}
 	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME

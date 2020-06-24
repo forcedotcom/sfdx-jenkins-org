@@ -28,6 +28,11 @@ node {
 	if (rc2 != 0) {
 		error 'SFDX CLI Authorization to target env has failed.'
 	}
+	// run tests
+	rc3 = command "${toolbelt}/sfdx force:apex:test:run -u targetEnvironment --wait 10"
+	if (rc3 != 0) {
+		error 'There was an issue running apex tests. Check ORG for details'
+	}
 }
 
 def command(script) {

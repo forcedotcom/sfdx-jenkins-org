@@ -1,7 +1,6 @@
 #!groovy
 
 node {
-	
 
 	def SF_AUTH_URL=env.SFDX_AUTH_URL
 	echo SF_AUTH_URL
@@ -13,7 +12,6 @@ node {
 	def toolbelt = tool 'toolbelt'
 	echo toolbelt
 
-	
 	rc = command "${toolbelt}/sfdx --help"
 	if (rc != 0) {
 		error 'SFDX CLI Jenkins tool initalize failed.'

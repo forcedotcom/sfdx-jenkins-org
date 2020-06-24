@@ -15,6 +15,9 @@ node {
 
 	// test
 	rc = command "${toolbelt}/sfdx --help"
+	if (rc != 0) {
+		error 'SFDX CLI Jenkins tool initalize failed.'
+	}
 }
 
 def command(script) {

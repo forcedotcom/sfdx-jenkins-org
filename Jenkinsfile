@@ -10,6 +10,9 @@ node {
 	def SF_INSTANCE_URL=env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 	echo SF_INSTANCE_URL
 
+	def toolbelt = tool 'toolbelt'
+	echo toolbelt
+
 	/*test
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME

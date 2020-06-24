@@ -4,7 +4,7 @@ node {
 
 	def SF_AUTH_URL=env.SFDX_AUTH_URL
 	echo SF_AUTH_URL
-	def DEPLOYDIR='src'
+	def DEPLOYDIR='force-app'
 	def TEST_LEVEL='RunLocalTests'
 	def SF_INSTANCE_URL=env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 	echo SF_INSTANCE_URL

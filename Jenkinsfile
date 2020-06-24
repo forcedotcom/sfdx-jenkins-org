@@ -14,7 +14,7 @@ node {
 
 
     // -------------------------------------------------------------------------
-    // Check out code from source control.T
+    // Check out code from source control.Test
     // -------------------------------------------------------------------------
 
     stage('checkout source') {

@@ -14,7 +14,7 @@ node {
 	echo toolbelt
 
 	// test
-	{$toolbelt};
+	rc = command "${toolbelt}/sfdx --version"
 }
 
 def command(script) {

@@ -13,6 +13,14 @@ node {
 	def toolbelt = tool 'toolbelt'
 	echo toolbelt
 
+	// -------------------------------------------------------------------------
+    // Check out code from source control.test.
+    // -------------------------------------------------------------------------
+
+    stage('checkout source') {
+        checkout scm
+    }
+
 	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME

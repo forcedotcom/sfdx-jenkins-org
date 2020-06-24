@@ -2,6 +2,7 @@
 
 node {
 
+	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
@@ -66,6 +67,7 @@ node {
 		//}
 	    }
 	}
+	*/
 }
 
 def command(script) {

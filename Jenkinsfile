@@ -14,7 +14,7 @@ node {
 	echo toolbelt
 
 	// test
-	{$toolbelt}
+	{$toolbelt};
 }
 
 def command(script) {

@@ -31,6 +31,11 @@ node {
 	if (rc3 != 0) {
 		error 'There was an issue running apex tests. Check ORG for details'
 	}
+	// deploy full build
+	rc4 = command "${toolbelt}/sfdx force:source:deploy --wait 10 --sourcepath ${DEPLOYDIR} --testlevel ${TESTLEVEL} -u targetEnvironment"
+	if (rc4 != 0) {
+		error 'There was an issue deploying. Check ORG deployment status page for details'
+	}
 }
 
 def command(script) {

@@ -13,16 +13,21 @@ node {
 	def toolbelt = tool 'toolbelt'
 	echo toolbelt
 
-	// test
+	
 	rc = command "${toolbelt}/sfdx --help"
 	if (rc != 0) {
 		error 'SFDX CLI Jenkins tool initalize failed.'
 	}
-	
 
 	writeFile file: 'authjenkinsci.txt', text: SF_AUTH_URL
-    sh 'ls -l authjenkinsci.txt'
-    sh 'cat authjenkinsci.txt'
+	sh 'ls -l authjenkinsci.txt'
+	sh 'cat authjenkinsci.txt'
+
+	// auth
+	rc2 = command "${toolbelt}/sfdx force:auth:sfdxurl:store -f authjenkinsci.txt -a targetEnvironment"
+	if (rc2 != 0) {
+		error 'SFDX CLI Authorization to target env has failed.'
+	}
 }
 
 def command(script) {

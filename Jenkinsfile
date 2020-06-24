@@ -1,8 +1,11 @@
 #!groovy
 
 node {
-	echo env.SF_USERNAME
-	echo env.SFDX_AUTH_URL
+	
+
+	def SF_AUTH_URL=env.SFDX_AUTH_URL
+	echo SF_AUTH_URL
+
 	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME

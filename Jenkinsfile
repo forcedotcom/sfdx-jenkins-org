@@ -14,7 +14,7 @@ node {
 	echo toolbelt
 
 	// test
-	toolbelt --version
+	{$toolbelt}
 }
 
 def command(script) {

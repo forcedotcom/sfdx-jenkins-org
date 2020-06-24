@@ -14,7 +14,7 @@ node {
 	echo toolbelt
 
 
-	echo {$toolbelt}/sfdx --version
+	echo {$toolbelt}/sfdx
 }
 
 def command(script) {

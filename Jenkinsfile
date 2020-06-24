@@ -1,7 +1,7 @@
 #!groovy
 
 node {
-
+	echo test
 	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
     def SF_USERNAME=env.SF_USERNAME

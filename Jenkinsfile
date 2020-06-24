@@ -13,7 +13,7 @@ node {
 	def toolbelt = tool 'toolbelt'
 	echo toolbelt
 
-	sfdx --version
+	echo sfdx --version
 }
 
 

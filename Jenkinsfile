@@ -18,11 +18,11 @@ node {
 	if (rc != 0) {
 		error 'SFDX CLI Jenkins tool initalize failed.'
 	}
-	// File file = new File("authjenkinsci.txt")
-	// file.write SF_AUTH_URL
-	// echo file.text
-	sh "echo SF_AUTH_URL>>authjenkinsci.txt"
-	echo authjenkinsci.txt
+	
+
+	writeFile file: 'authjenkinsci.txt', text: SF_AUTH_URL
+    sh 'ls -l authjenkinsci.txt'
+    sh 'cat authjenkinsci.txt'
 }
 
 def command(script) {

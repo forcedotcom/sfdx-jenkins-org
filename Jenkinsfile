@@ -17,9 +17,26 @@ node {
     // Check out code from source control.test.
     // -------------------------------------------------------------------------
 
-    stage('checkout source') {
-        checkout scm
-    }
+    // stage('checkout source') {
+    //     checkout scm
+    // }
+
+	sfdx --version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/*
     def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY

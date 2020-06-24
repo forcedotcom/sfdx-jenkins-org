@@ -21,7 +21,7 @@ node {
 	// File file = new File("authjenkinsci.txt")
 	// file.write SF_AUTH_URL
 	// echo file.text
-	echo SF_AUTH_URL>>authjenkinsci.txt
+	sh "echo SF_AUTH_URL>>authjenkinsci.txt"
 }
 
 def command(script) {

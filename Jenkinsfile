@@ -13,7 +13,16 @@ node {
 	def toolbelt = tool 'toolbelt'
 	echo toolbelt
 
-	echo sfdx --version
+
+	echo command ${toolbelt}/sfdx --version
+}
+
+def command(script) {
+    if (isUnix()) {
+        return sh(returnStatus: true, script: script);
+    } else {
+		return bat(returnStatus: true, script: script);
+    }
 }
 
 

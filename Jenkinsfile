@@ -16,10 +16,11 @@ node {
 	// -------------------------------------------------------------------------
     // Check out code from source control.test.
     // -------------------------------------------------------------------------
-
-    // stage('checkout source') {
-    //     checkout scm
-    // }
+	/*
+    stage('checkout source') {
+        checkout scm
+    }
+	*/
 
 	sfdx --version
 

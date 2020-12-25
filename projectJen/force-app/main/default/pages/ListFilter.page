@@ -1,0 +1,6 @@
+<apex:page standardController="Contact" >
+    
+    <apex:form >
+       
+    </apex:form>
+</apex:page>

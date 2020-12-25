@@ -1,0 +1,38 @@
+<apex:page controller="FileUploadController">
+  <apex:sectionHeader title="Visualforce Example" subtitle="File Upload Example"/>
+ 
+  <apex:form enctype="multipart/form-data">
+    <apex:pageMessages />
+    <apex:pageBlock title="Upload a File">
+ 
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!upload}" value="Save"/>
+      </apex:pageBlockButtons>
+ 
+      <apex:pageBlockSection showHeader="false" columns="2" id="block1">
+ 
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File Name" for="fileName"/>
+          <apex:inputText value="{!document.name}" id="fileName"/>
+        </apex:pageBlockSectionItem>
+ 
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File" for="file"/>
+          <apex:inputFile value="{!document.body}" filename="{!document.name}" id="file"/>
+        </apex:pageBlockSectionItem>
+ 
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Description" for="description"/>
+          <apex:inputTextarea value="{!document.description}" id="description"/>
+        </apex:pageBlockSectionItem>
+ 
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Keywords" for="keywords"/>
+          <apex:inputText value="{!document.keywords}" id="keywords"/>
+        </apex:pageBlockSectionItem>
+ 
+      </apex:pageBlockSection>
+ 
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

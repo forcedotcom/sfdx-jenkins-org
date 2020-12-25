@@ -1,0 +1,16 @@
+<apex:page standardController="Account">
+    <apex:form >
+        <apex:pageBlock >
+    <apex:pageMessages />
+   <apex:pageBlockButtons >
+      <apex:commandButton value="Save" action="{!Save}"/>
+   </apex:pageBlockButtons>
+    
+         <apex:pageBlockTable value="{!Account.Contacts}" var="Contact">
+             <apex:column headerValue="FirstName"><apex:inputField value="{!Contact.FirstName}"/></apex:column>
+             <apex:column headerValue="Phone"><apex:inputField value="{!Contact.Phone}"/></apex:column>
+            <apex:column headerValue="EmailID"><apex:inputField value="{!Contact.Email}"/></apex:column>
+      </apex:pageBlockTable>
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>

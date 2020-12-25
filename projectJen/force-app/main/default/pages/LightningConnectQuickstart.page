@@ -1,0 +1,19 @@
+<apex:page controller="LightningConnectQuickstart">
+    <apex:pageBlock title="Lightning Connect Quickstart" rendered="{!NOT(customerIDsSet)}">
+        <apex:form >
+            <p>
+                <apex:commandButton action="{!setCustomerIDs}" value="Set Customer IDs" />
+                Click the button to assign Customer IDs to Account records. You will need to
+                do this before you do the Lightning Connect Quick Start.
+            </p>
+        </apex:form>
+    </apex:pageBlock>
+    <apex:pageBlock title="Lightning Connect Quickstart" rendered="{!customerIDsSet}">
+        <apex:form >
+            <p>
+                Customer IDs have been successfully assigned to Account records. You can
+                now do the Lightning Connect Quick Start.
+            </p>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

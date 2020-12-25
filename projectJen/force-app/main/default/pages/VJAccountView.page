@@ -1,0 +1,8 @@
+<apex:page standardController="Account" >
+     
+    <P> Hello <B>{!$User.FirstName}!</B>  </P>
+<apex:pageBlock >You are currently viewing: {! account.name}</apex:pageBlock> 
+    
+ <apex:pageBlock > <apex:detail relatedList="false" title="true"/> </apex:pageBlock>   
+                                    
+</apex:page>

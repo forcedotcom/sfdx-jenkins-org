@@ -1,0 +1,30 @@
+<apex:page standardController="Contact"  showHeader="true" sidebar="false" standardStylesheets="true">
+    <apex:form >
+        
+        <!-- Check Access to Contact Object -->
+        <apex:pageBlock rendered="{!$objectType.Contact.accessible}" >
+            <p> Access to Contacts TRUE</p>
+        </apex:pageBlock>
+        
+        <apex:pageBlock rendered=" NOT{!$objectType.Contact.accessible}" >
+            <p> Access to Contacts FALSE</p>
+        </apex:pageBlock>
+
+         <apex:pageBlock >
+             
+        	<apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!Save}" /> 
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+             
+                	<apex:pageBlockSection title="Enter contact details:"  columns="1" collapsible="false" showHeader="false">
+                		<apex:inputField id="FirstName" value="{!Contact.FirstName}" label="First Name" required="true" />
+                         <apex:inputField id="LastName" value="{!Contact.LastName}"  label="Last Name" required="true" />
+                        <apex:inputField id="Account" value="{!Contact.AccountID}" required="true" />
+                        <apex:inputField id="phone" value="{!Contact.Phone}"  required="true" />                      
+                	</apex:pageBlockSection>
+             
+        </apex:pageBlock>  
+        
+    </apex:form>
+</apex:page>

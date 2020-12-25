@@ -1,0 +1,21 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" doctype="html-5.0" >
+    <!-- Begin Default Content REMOVE THIS -->
+    <h1>Hello</h1>
+    <apex:pageBlock title="Block #1">
+        <apex:pageBlockSection title="Section #1">
+            Section #1 text
+        </apex:pageBlockSection>
+        
+        
+        
+        <apex:pageBlockSection title="Section #2">
+            Section #2 text
+            <apex:pageBlockSectionItem >
+            Section Item #1 
+			Section Item #2 
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>       
+        
+    </apex:pageBlock>	  
+    
+</apex:page>

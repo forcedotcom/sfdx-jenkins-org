@@ -1,0 +1,5 @@
+<apex:page standardStylesheets="false">
+<apex:stylesheet value=" {! URLFOR($Resource.Style, 'styles.css')} "/>
+<h1>My Styled Page</h1>
+<p>Great!</p>
+</apex:page>

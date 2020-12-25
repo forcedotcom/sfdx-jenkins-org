@@ -1,0 +1,47 @@
+<apex:page standardController="Account" renderAs="pdf" standardStylesheets="true"  Title="Account Confirmation" showHeader="true">
+    
+        <center>
+        <apex:panelGrid columns="1" width="100%">
+            <apex:outputText value="{!$Organization.Name}" styleClass="companyName"/>
+            <apex:outputText value="{!$Organization.Street}"/>
+            <apex:outputText value="{!$Organization.City} {!$Organization.State} {!$Organization.PostalCode}"/>
+            <apex:outputText value="{!$Organization.Phone}"/>
+        </apex:panelGrid>
+        </center>
+    
+    <apex:sectionHeader title="{!$ObjectType.Account.Label} Information" />
+    	<apex:form id="myForm"  title="Account Information">
+            
+           <body>
+            Dear Valued Customer,<br/>
+            We have successfully created your account in the system and below are the details. Please take some time to review the info and get back to us with any questions.
+               <br/>  
+    		<apex:pageBlock >
+                <apex:pageBlockSection title="Account Detail">
+                    <apex:outputField value="{!Account.name}"  />
+                    <apex:pageBlockSectionItem />	
+                    <apex:outputField value="{!Account.AccountNumber}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!Account.Phone}" />             
+                    <apex:pageBlockSectionItem />
+                </apex:pageBlockSection>
+                <br/>
+                <apex:pageBlockSection title="Contact Information" >
+                	<apex:pageBlockTable value="{!Account.Contacts}" var="Contacts" border="1">  
+                        <apex:column value="{!Contacts.Name}" width="50%"/>
+                        <apex:column value="{!Contacts.Phone}" width="30%" />
+                    </apex:pageBlockTable>
+
+                </apex:pageBlockSection>
+            
+            </apex:pageBlock>
+      <p>
+ Best Regards,
+<br/>
+________________________________
+<br/>
+{!Account.Owner.Name}
+            </p>
+               </body>
+    	</apex:form>
+</apex:page>

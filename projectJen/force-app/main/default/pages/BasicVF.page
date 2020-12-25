@@ -1,0 +1,15 @@
+<apex:page sidebar="false" showHeader="false" title="Basic VF Page">
+    <h1>
+        Welcome {! $User.FirstName & ' ' & $User.LastName &'!'}                                                                            
+    </h1>
+    <apex:pageBlock title="Page Block Title"> 
+        <apex:pageBlockSection title="Section 1" >
+            <apex:panelGrid >
+            Apex Panel Grid
+            </apex:panelGrid>
+            
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Section 2"  >
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

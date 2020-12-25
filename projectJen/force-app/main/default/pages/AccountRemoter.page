@@ -1,0 +1,42 @@
+<apex:page controller="AccountRemoter">
+    <script type="text/javascript">
+    function getRemoteAccount() {
+        var accountName = document.getElementById('acctSearch').value;
+
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.AccountRemoter.getAccount}',
+            accountName, 
+            function(result, event){
+                if (event.status) {
+                    // Get DOM IDs for HTML and Visualforce elements like this
+                    document.getElementById('remoteAcctId').innerHTML = result.Id
+                    document.getElementById(
+                        "{!$Component.block.blockSection.secondItem.acctNumEmployees}"
+                        ).innerHTML = result.NumberOfEmployees;
+                } else if (event.type === 'exception') {
+                    document.getElementById("responseErrors").innerHTML = 
+                        event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                } else {
+                    document.getElementById("responseErrors").innerHTML = event.message;
+                }
+            }, 
+            {escape: true}
+        );
+    }
+    </script>
+
+    <input id="acctSearch" type="text"/>
+    <button onclick="getRemoteAccount()">Get Account</button>
+    <div id="responseErrors"></div>
+
+    <apex:pageBlock id="block">
+        <apex:pageBlockSection id="blockSection" columns="2">
+            <apex:pageBlockSectionItem id="firstItem">
+                <span id="remoteAcctId"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem id="secondItem">
+                <apex:outputText id="acctNumEmployees"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

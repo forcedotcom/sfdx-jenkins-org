@@ -1,0 +1,18 @@
+<apex:page standardController="contact" extensions="ContactNewController"> 
+    <apex:form > <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock > 
+            <apex:pageBlockButtons > 
+                <apex:commandButton value="Save" action="{!Save }"/> <apex:commandButton value="Cancel" action="{!Cancel }"/> 
+            </apex:pageBlockButtons> 
+            	<apex:pageBlockSection > <apex:pageBlockSectionItem > 
+                    <apex:outputLabel >Contact First Name</apex:outputLabel>                  
+                    <apex:inputField id="FirstName" value="{!contact.firstname}"/>
+                    </apex:pageBlockSectionItem> 
+                    	<apex:inputField id="LastName" value="{!contact.lastname}"/> 
+                    	<apex:inputField id="Acoount" value="{!contact.accountid}"/> 
+                    	<apex:inputField id="Email" value="{!contact.email}"/> 
+                    	<apex:inputField id="Phone" value="{!contact.phone}"/> 
+            </apex:pageBlockSection> 
+        </apex:pageBlock> 
+    </apex:form> 
+</apex:page>

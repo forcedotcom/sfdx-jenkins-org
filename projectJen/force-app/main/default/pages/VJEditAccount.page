@@ -1,0 +1,14 @@
+<apex:page controller="VJUpdateAccount" >
+    <apex:form >
+    	<apex:pageBlock title="Edit Account" mode="Edit"> 
+        	<apex:pageMessages ></apex:pageMessages>
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:commandButton action="{!save}" value="Save" />
+                    <!-- <apex:commandButton action="{!cancel}" value="Cancel" /> -->
+                </apex:pageBlockButtons>
+                    <apex:pageBlockSection title="Account Details" columns="2" >
+                        <apex:inputText label="Account" value="{!accountName}" size="40" required="true" /> 
+		            </apex:pageBlockSection>
+     	</apex:pageBlock>
+    </apex:form>
+</apex:page>

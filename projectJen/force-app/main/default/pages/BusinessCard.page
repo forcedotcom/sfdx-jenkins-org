@@ -1,0 +1,11 @@
+<apex:page >
+    <apex:PageBlock title="Business Card">
+        <apex:pageblockSection >
+            FirstName:  {!$User.FirstName}  
+            LastName:   {!$User.LastName}  
+            Email:      {!$User.Email}  
+            Phone:      {!$User.Phone}   
+            Title:      {!$User.Title}  
+        </apex:pageblockSection>
+    </apex:PageBlock> 
+</apex:page>

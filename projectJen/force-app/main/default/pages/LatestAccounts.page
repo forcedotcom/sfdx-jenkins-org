@@ -1,0 +1,66 @@
+<apex:page docType="html-5.0" title="Latest Accounts">
+<style>
+.mypage {
+    font-family: "ProximaNovaSoft-Regular", Calibri; 
+    font-size: 110%;
+    padding-top: 12px;
+}
+.mypage h2 {
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 24px;
+}
+.mypage ul {
+    list-style-type: none;
+    padding: 0;
+}
+.mypage a {
+    display: block;
+    padding: 10px;
+}
+.mypage li {
+    border-bottom: solid 1px #dddddd;
+    margin: 0;
+}
+.mypage a:hover {
+    background-color: #dddddd;
+    text-decoration: none;
+    color: #000000;
+}
+</style>
+
+    
+<apex:remoteObjects >
+    <apex:remoteObjectModel name="Account" fields="Id,Name,LastModifiedDate"/>
+</apex:remoteObjects>
+    
+<div class="mypage">
+    <h2>Latest Accounts</h2>
+    <ul id="accountList"/>
+</div>    
+    
+<script>
+var ul = document.getElementById("accountList");
+var account = new SObjectModel.Account();
+account.retrieve(
+    {orderby: [{LastModifiedDate: 'DESC'}], limit: 10}, 
+    function(error, records) {
+        if (error) {
+            alert(error.message);
+        } else {
+            var html = "";
+            records.forEach(function(record) {
+                html = html + "<li><a data-id=" + record.get("Id") + ">" + 
+                               record.get("Name") + "</a></li>";
+            });
+            ul.innerHTML = html;
+        }
+    }
+);
+ul.addEventListener("click", function(e) {
+    sforce.one.navigateToSObject(e.target.getAttribute("data-id"));
+});
+
+</script>
+    
+</apex:page>

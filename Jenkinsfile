@@ -29,7 +29,7 @@ node {
     // -------------------------------------------------------------------------
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
- 		stage('installing scanner'){
+ 		/*stage('installing scanner'){
  		
  		    rc = command "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
 		    if (rc != 0) {
@@ -43,7 +43,7 @@ node {
 			error 'Salesforce static analysis failed.'
 		    }
 		}
-
+*/
 
 		// -------------------------------------------------------------------------
 		// Example shows how to run a check-only deploy.

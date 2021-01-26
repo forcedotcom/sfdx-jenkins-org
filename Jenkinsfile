@@ -22,17 +22,25 @@ node {
     }
 
 
+
     // -------------------------------------------------------------------------
     // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
+ 		stage('installing scanner'){
+ 		
+ 		    rc = command "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
+		    if (rc != 0) {
+			error 'Scanner installation failed.'
+		    }
+ 		}
 
 		stage('Running pmd') {
 		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml"
 		    if (rc != 0) {
-			error 'Salesforce deploy and test run failed.'
+			error 'Salesforce static analysis failed.'
 		    }
 		}
 

@@ -29,26 +29,9 @@ node {
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
 
-	    //withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
-		// -------------------------------------------------------------------------
-		// Authenticate to Salesforce using the server key.
-		// -------------------------------------------------------------------------
-
-		/*stage('Authorize to Salesforce') {
-			rc = command "${toolbelt}/sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
-		    if (rc != 0) {
-			error 'Salesforce org authorization failed.'
-		    }
-		}*/
-
-
-		// -------------------------------------------------------------------------
-		// Deploy metadata and execute unit tests.
-		// -------------------------------------------------------------------------
-
 		stage('Running pmd') {
 		    pwd
-		    rc = command "${toolbelt}/sfdx scanner:run --target "src" --pmdconfig "src/resources/rulesets/apex/ruleset.xml""
+		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml"
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'
 		    }

@@ -31,6 +31,7 @@ node {
 
 		stage('Running pmd') {
 		    pwd
+		    ls
 		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml"
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'

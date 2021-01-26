@@ -2,11 +2,6 @@
 <ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Default ruleset used by the CodeClimate Engine for Salesforce.com Apex" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description> Custom Rule Set </description>
 
-    <rule ref="category/apex/bestpractices.xml" />
-    <rule ref="category/apex/documentation.xml" />
-    <!--excluding some rules -->
-    <rule ref="category/apex/codestyle.xml">
-	<exclude name="WhileLoopsMustUseBraces"/>    
-    </rule>
+
 
 </ruleset>

@@ -1,0 +1,6 @@
+<results total="1" totalViolations="4">
+        
+      <result file="src/classes/MyClass.cls" engine="pmd-custom">
+          <violation severity="3" line="1" column="27" endLine="9" endColumn="2" rule="ApexDoc" category="Documentation" url="https://pmd.github.io/pmd-6.30.0/pmd_rules_apex_documentation.html#apexdoc">Missing ApexDoc comment</violation><violation severity="3" line="2" column="9" endLine="2" endColumn="15" rule="EmptyStatementBlock" category="Error Prone" url="https://pmd.github.io/pmd-6.30.0/pmd_rules_apex_errorprone.html#emptystatementblock">Avoid empty block statements.</violation><violation severity="3" line="2" column="9" endLine="4" endColumn="2" rule="ApexDoc" category="Documentation" url="https://pmd.github.io/pmd-6.30.0/pmd_rules_apex_documentation.html#apexdoc">Missing ApexDoc comment</violation><violation severity="3" line="6" column="16" endLine="8" endColumn="2" rule="ApexDoc" category="Documentation" url="https://pmd.github.io/pmd-6.30.0/pmd_rules_apex_documentation.html#apexdoc">Missing ApexDoc comment</violation>
+      </result>
+</results>

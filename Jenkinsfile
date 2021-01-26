@@ -29,7 +29,7 @@ node {
     // -------------------------------------------------------------------------
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
- 		/*stage('installing scanner'){
+ 		stage('installing scanner'){
  		
  		    rc = command "${toolbelt}/sfdx plugins:install @salesforce/sfdx-scanner"
 		    if (rc != 0) {
@@ -38,12 +38,12 @@ node {
  		}
 
 		stage('Running pmd') {
-		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml"
+		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml -f xml -o pmd.xml"
 		    if (rc != 0) {
 			error 'Salesforce static analysis failed.'
 		    }
 		}
-*/
+
 
 		// -------------------------------------------------------------------------
 		// Example shows how to run a check-only deploy.

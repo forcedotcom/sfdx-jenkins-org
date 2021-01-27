@@ -38,7 +38,7 @@ node {
  		}
 
 		stage('Running pmd') {
-		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml -f junit "
+		    rc = command "${toolbelt}/sfdx scanner:run --target src --pmdconfig src/resources/rulesets/apex/ruleset.xml -f html -o src/results.html"
 		    if (rc != 0) {
 			error 'Salesforce static analysis failed.'
 		    }

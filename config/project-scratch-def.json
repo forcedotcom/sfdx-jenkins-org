@@ -1,0 +1,15 @@
+{
+  "orgName": "CI Example",
+  "edition": "Developer",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "features": ["Walkthroughs", "EnableSetPasswordInApi"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}

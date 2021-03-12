@@ -58,6 +58,7 @@ node {
 	}
 
 	recordIssues(tools: [pmdParser()])
+	emailextrecipients([developers()])
 }
 
 def command(script) {

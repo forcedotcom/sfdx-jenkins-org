@@ -1,0 +1,4 @@
+<apex:page >
+<apex:listViews type="Account"/>
+<apex:enhancedList type="Account" height="500"/> 
+</apex:page>

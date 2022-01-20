@@ -1,0 +1,22 @@
+<apex:page StandardController="Case">
+  <apex:form >
+     <apex:PageBlock >
+         <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>   
+        <apex:PageBlockSection title="Case Creation">
+        <apex:inputField value="{!case.subject}"/>          
+        <apex:inputField value="{!case.origin}"/>
+        <apex:inputField value="{!case.priority}"/>
+        <apex:inputField value="{!case.type}"/>
+        <apex:inputField value="{!case.reason}"/> 
+        <apex:inputField value="{!case.contactid}"/>
+        <apex:inputField value="{!case.accountid}"/>
+        <apex:inputField value="{!case.description}"/>
+        <apex:inputField value="{!case.createddate}"/>
+        <apex:inputField value="{!case.createdbyid}"/>
+        </apex:PageBlockSection>
+     </apex:PageBlock>
+  </apex:form>
+</apex:page>

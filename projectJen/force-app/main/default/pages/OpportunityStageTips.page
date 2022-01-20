@@ -1,0 +1,10 @@
+<apex:page standardController="Opportunity">
+  <apex:PageBlock >
+      <apex:PageBlockSection title="Tip" id="Opptip">
+    <h1> {!IF((Opportunity.StageName == "Prospecting"),"Constant Followup will help to move to next stage!","")} </h1>
+    <h1> {!IF((Opportunity.StageName == "Needs Analysis"),"Getting to know the Customer background will help to move to next stage!","")} </h1>
+    <h1> {!IF((Opportunity.StageName == "Proposal/Price Quote") ,"Providing discounts will help to move to next stage!","")} </h1>
+    <h1> {!IF((Opportunity.StageName == "Negotiation/Review"),"Go an extra mile to negotiate to close the deal!","")} </h1>  
+      </apex:PageBlockSection>
+  </apex:PageBlock>
+</apex:page>

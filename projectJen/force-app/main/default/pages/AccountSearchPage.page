@@ -1,0 +1,65 @@
+<apex:page Standardcontroller="Account" extensions="AccountSearchExtension" sidebar="false" showHeader="true" >
+    
+    <br/>  <br/>
+    <font size="5"> <Center><u>Account Search</u></Center></font> 
+	<br/>  <br/>
+    <!-- <apex:sectionHeader description="Account Search" /> -->
+    
+    <apex:form id="theForm">
+        
+       <apex:pageBlock id="thePageBlock" title="Search Account" >
+        
+            <apex:pageMessage summary="No accounts found with this name. Please search again with a different name!" severity="Warning" strength="3"  rendered="{!count = 0}"/>
+        <apex:pageMessages />
+           <!-- Start: Search Accounts -->
+           <apex:actionRegion >
+        		<apex:PageBlockSection id="search" title="Search" >
+           			<apex:outputLabel value="Enter Account Name to search: " > </apex:outputLabel>
+					<apex:inputText value="{!searchString}"/>
+					<apex:commandButton action="{!getAccounts}" value="Search" />                
+                    <apex:actionSupport event="OnClick" reRender="Contacts" immediate="true" />
+           		</apex:PageBlockSection>
+           </apex:actionRegion>
+             <!-- End: Search Accounts -->
+        
+           		<!-- Start: Show Accounts -->
+        		<apex:pageBlockSection id="results" title="Account Listing"  >
+               		<apex:PageBlockTable value="{!accounts}" var="acc" id="AccTable" >
+                        	
+                        	<apex:column value="{!acc.ID}"/>
+							<apex:column value="{!acc.name}"/>
+                       		<apex:column value="{!acc.Phone}"/> 
+                        	<apex:column value="{!acc.BillingCity}"/>
+                        	<!-- Start: Goto Accounts Detail Page-->
+                        	<apex:column width="60">
+                        	<apex:CommandLink action="{!gotoAccount}"> 
+                        			<apex:param name="ID" value="{!acc.ID}" assignTo="{!ID}" /> 
+									Acc-Detail
+                            </apex:CommandLink>
+                            </apex:column>
+                        	<!-- End: Goto Accounts Detail Page-->
+                        
+                        	<!-- Start: Show Contacts -->
+                        <apex:column width="80">
+                        	<apex:CommandLink action="{!getContacts}"  >
+                        			<apex:param name="ID" value="{!acc.ID}" assignTo="{!ID}" /> 
+                                	ShowCont
+                                  	</apex:CommandLink>
+                            </apex:column>
+                        <!-- End: Show Contacts -->	
+                    </apex:PageBlockTable>
+               </apex:pageBlockSection>
+           		<!-- End: Show Accounts -->
+           
+        	<!-- Start: Display Contacts -->
+           <apex:pageBlockSection id="Contacts" columns="1" title="Contacts"  >
+               <apex:pageBlockTable value="{!contacts}" var="c" id="ConTable">
+                   			<apex:column value="{!c.email}"/>
+							<apex:column value="{!c.phone}"/>
+               </apex:pageBlockTable>
+           </apex:pageBlockSection>
+           <!-- End: Display Contacts -->
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

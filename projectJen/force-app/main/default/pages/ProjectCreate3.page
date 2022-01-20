@@ -1,0 +1,30 @@
+<apex:page standardController="Project__c" title="Story Creation"  extensions="ProjectCreateExtension">
+    
+    <apex:form >
+		<apex:pageBlock title="Story Details">
+            
+            <apex:pageBlockButtons >
+				<apex:commandButton action="{!SaveStory}" value="Save"/>
+                <apex:commandButton action="{!ToPage2}" value="Sprints" immediate="true"/>
+             </apex:pageBlockButtons>
+            
+            
+
+            <apex:pageBlockSection >
+                <apex:inputField value="{!story.Theme__c}"/>
+                <apex:inputField value="{!story.Points__c}"/>
+                <apex:inputField value="{!story.Story__c}"/>
+			</apex:pageBlockSection>
+                    
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Stories">
+        	<apex:pageBlockTable value="{!stories}" var="s">
+                    <apex:column value="{!s.Theme__c}"/>
+                    <apex:column value="{!s.Points__c}"/>
+                    <apex:column value="{!s.Story__c}"/>
+        	</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
+    
+</apex:page>

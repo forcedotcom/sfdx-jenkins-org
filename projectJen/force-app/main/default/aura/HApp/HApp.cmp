@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="appName" type="String" required="true" default="HConnectedApp" />
+    
+    <force:canvasApp developerName="{! v.appName }" width="1440" maxWidth="1440" maxHeight="infinite" scrolling="true" />
+</aura:component>

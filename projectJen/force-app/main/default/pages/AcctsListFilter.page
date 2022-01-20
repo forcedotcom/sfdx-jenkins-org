@@ -1,0 +1,28 @@
+<apex:page Controller="clsStdsetContFilter" >
+    <apex:form >
+      
+		<apex:pageBlock >  
+           <apex:pageBlockSection >
+                   <apex:actionStatus id="filterstatus" startText="Please Wait...."  >
+                       <apex:facet name="stop">
+                        <apex:selectList value="{!chosenSize}" size="1">
+                            <apex:actionSupport action="{!ApplyFilter}" event="onchange" status="filterStatus" rerender="theList"/>  
+                        <apex:selectOptions value="{!sizeOptions}"/>
+                        </apex:selectList>
+                       </apex:facet>
+                </apex:actionStatus>                   
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+  
+		<apex:pageBlock id="theList">
+            <apex:pageMessages />
+            <apex:pageBlockTable value="{!ssc.Records}" var="a" >
+                <apex:column value="{!a['Name']}" />
+                <apex:column value="{!a['NumberofEmployees']}" />
+            </apex:pageBlockTable>   
+            <apex:commandLink action="{!ssc.next}" value="Next" rendered="{! ssc.HasNext}" />
+            <apex:commandLink action="{!ssc.previous}" value="Previous" rendered="{! ssc.HasPrevious}" />
+		</apex:pageBlock>
+        
+	</apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page standardController="Account">
+        
+	<apex:form >    
+        
+       <apex:pageBlock title="Account Details" >
+            
+            <apex:pageMessages showDetail="false"  />
+            
+                 <apex:pageBlockButtons location="bottom" >
+                 	 <apex:commandButton action="{!quicksave}" value="Quick Save!"/>
+                 </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Enter Acc Details:" columns="2" >
+                <apex:inputField id="Name" value="{! account.name}" />
+                <apex:inputField id="City" value="{!account.billingcity}" />
+                <apex:inputField id="Phone" value="{! account.phone}"/>
+            </apex:pageBlockSection>
+   
+        </apex:pageBlock>
+        
+	</apex:form>    
+    
+</apex:page>

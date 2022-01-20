@@ -1,0 +1,3 @@
+<design:component label="H App">
+    <design:attribute name="appName" label="App Name" description="API name of the connected app to be displayed" />
+</design:component>

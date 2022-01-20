@@ -1,0 +1,8 @@
+<apex:page >
+    <apex:panelGrid columns="4" id="theGrid" border="5"  >
+        <apex:outputText value="First" id="theFirst"/>
+        <apex:outputText value="Second" id="theSecond"/>
+        <apex:outputText value="Third" id="theThird"/>
+        <apex:outputText value="Fourth" id="theFourth"/>
+    </apex:panelGrid>
+</apex:page>

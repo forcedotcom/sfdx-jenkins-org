@@ -1,0 +1,12 @@
+<apex:page controller="exampleCon">
+    <apex:form >
+        <apex:outputPanel id="counter" >
+        	<apex:outputText value="Click Me!: {!count}"/>
+    	<!--    <apex:actionPoller action="{!incrementCounter}" rerender="counter"            status="counterStatus" interval="5"/>-->
+        		<apex:actionSupport event="onclick" action="{!incrementCounter}" rerender="counter"  status="counterStatus"/>
+      	</apex:outputPanel>
+        	<apex:actionStatus id="counterStatus" startText=" (incrementing...)" stopText=" (done)" />
+        <P> <apex:outputLink value="{! $page.VJStdController}"> Goto VJStdController</apex:outputLink> </P>
+        
+           </apex:form>
+</apex:page>

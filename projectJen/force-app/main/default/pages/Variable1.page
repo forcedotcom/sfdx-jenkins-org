@@ -1,0 +1,24 @@
+<apex:page controller="variablecontroller"> 
+    <apex:variable var="c" value="{!contact}" /> 
+    <apex:variable var="a" value="{!var1}"/> 
+    <p>Greetings, {!c.LastName}.</p>
+    <br/> 
+    <apex:outputLabel >{!$CurrentPage.parameters.param1}</apex:outputLabel>
+    <br/> 
+    <apex:outputLabel >{!a}</apex:outputLabel>
+    <br/> 
+    <apex:variable var="a" value="{!a+1}"/> 
+    <apex:outputLabel >{!a}</apex:outputLabel>
+    <br/> 
+    <apex:variable var="a" value="{!a+1}"/> 
+    <apex:outputLabel >{!a}</apex:outputLabel>
+    <br/> 
+    <apex:variable var="a" value="{!a+1}"/> 
+    <apex:outputLabel >{!a}</apex:outputLabel>
+    <br/> 
+    <apex:variable var="a" value="{!a+1}"/> 
+    <apex:outputLabel >{!a}</apex:outputLabel>
+    <br/>
+    <apex:outputLabel >Param1 Value: {!param1}</apex:outputLabel>
+    <br/>
+</apex:page>

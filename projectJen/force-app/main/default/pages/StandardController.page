@@ -1,0 +1,19 @@
+<apex:page standardController="Account" >
+      
+    <apex:pageBlock title="Account">
+			<apex:pageBlockSection title="Account Details" columns="3" collapsible="false">
+				<apex:outputField value="{!account.Name}"/>
+				<apex:outputField value="{!account.Owner.Name}"/>
+                <apex:outputField value="{!account.billingcity}"/>
+			</apex:pageBlockSection>
+            <apex:pageBlockSection title="Contacts"  >
+                <apex:pageBlockTable value="{! account.contacts}" var="item">
+                    <apex:column value="{! item.name}" headerValue="Contact Name"/>
+                    <apex:column value="{! item.Title}" headerValue="Position Title" />
+                    <apex:column value="{! item.phone}" headerValue="Phone#" />
+                </apex:pageBlockTable>
+             </apex:pageBlockSection>       
+		</apex:pageBlock>
+    	<apex:outputLink value="https://google.com">Google Me!</apex:outputLink>
+         <p><apex:outputLink value="{! URLFOR($Action.Account.new)}">Create</apex:outputLink></p>
+</apex:page>

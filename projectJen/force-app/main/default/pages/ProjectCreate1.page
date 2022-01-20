@@ -1,0 +1,23 @@
+<apex:page standardController="Project__c" title="New Project" extensions="ProjectCreateExtension" >
+    
+    <apex:form >
+		<apex:pageBlock title="Project Creation">
+            
+            
+            
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton action="{!ToPage2}" value="Continue"/>
+                </apex:pageBlockButtons>
+                
+            <apex:pageBlockSection >
+                
+            	<apex:inputField value="{!Project__c.Name}"  />
+				<apex:inputField value="{!Project__c.Start_Date__c}"  />
+				<apex:inputField value="{!Project__c.Budget__c}" />
+            
+             </apex:pageBlockSection>
+            
+		</apex:pageBlock>
+	</apex:form>
+    
+</apex:page>

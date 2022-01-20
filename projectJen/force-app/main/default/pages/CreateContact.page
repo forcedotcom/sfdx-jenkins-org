@@ -1,0 +1,34 @@
+<apex:page standardController="Contact" >
+    <apex:form >
+    	<apex:pageBlock title="Create Contact">
+        	<apex:pageBlocksection title="Contact Details">
+            	<apex:inputField value="{!Contact.FirstName}"/>
+                <apex:inputField value="{!Contact.LastName}"/>
+                <apex:inputField value="{!Contact.Email}"/>
+            </apex:pageBlocksection>
+            <apex:pageBlockButtons location="bottom">
+            <apex:commandButton action="{!Save}" Value="Save"/>
+            <apex:commandButton action="{!Cancel}" Value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
+
+<!-- edit and delete link besides table
+ <apex:pageBlockTable value="{!Account.contacts}" var="contact">
+        <apex:column>
+            <apex:outputLink
+                value="{! URLFOR($Action.Contact.Edit, contact.Id) }">
+                Edit
+            </apex:outputLink>
+            &nbsp;
+            <apex:outputLink
+                value="{! URLFOR($Action.Contact.Delete, contact.Id) }">
+                Del
+            </apex:outputLink>
+        </apex:column>
+        <apex:column value="{!contact.Name}"/>
+        <apex:column value="{!contact.Title}"/>
+        <apex:column value="{!contact.Phone}"/>
+    </apex:pageBlockTable>
+-->

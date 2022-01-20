@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>33.0</apiVersion>
+    <description>Default Force.com Login component</description>
+    <label>SiteLogin</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>6</minorNumber>
+        <namespace>sf_com_apps</namespace>
+    </packageVersions>
+</ApexComponent>

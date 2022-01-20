@@ -1,0 +1,3 @@
+<apex:page > 
+    <apex:pageMessage severity="info" strength="1" summary="{!$Label.firstrun_helptext}" /> 
+</apex:page>

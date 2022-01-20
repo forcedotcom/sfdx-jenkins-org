@@ -1,0 +1,18 @@
+<apex:page controller="sampleCon">
+    <apex:form >
+        <apex:selectRadio value="{!country}">
+            <apex:selectOptions value="{!items}"/>
+            </apex:selectRadio><p/>
+            <apex:commandButton value="Test" action="{!test}" rerender="out" status="status"/>
+     </apex:form>
+     <apex:outputPanel id="out">
+          <apex:actionstatus id="status" startText="testing..."> 
+             <apex:facet name="stop"> 
+               <apex:outputPanel > 
+                  <p>You have selected:</p> 
+                 <apex:outputText value="{!country}"/> 
+              </apex:outputPanel> 
+            </apex:facet> 
+          </apex:actionstatus> 
+     </apex:outputPanel> 
+</apex:page>

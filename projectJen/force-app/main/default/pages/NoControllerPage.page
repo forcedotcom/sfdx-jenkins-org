@@ -1,0 +1,7 @@
+<apex:page >
+ <apex:outputLink value="{!URLFOR($Action.Account.New	)}" >New Account</apex:outputLink>
+    <br> </br>
+    <apex:outputLink value="{!URLFOR('apex/VJCreateContact')}" >Goto VJCreateContact</apex:outputLink>
+    <br> </br>
+	
+    </apex:page>

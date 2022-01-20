@@ -1,0 +1,33 @@
+<apex:page standardController="Contact" extensions="ContactEditController"> 
+    <apex:form > 
+        <apex:pageMessages id="pagemsg1"></apex:pageMessages> 
+        <apex:messages id="pageMsg"/> 
+        <br/><br/><br/> 
+      <apex:outputpanel id="counter"> 
+          <apex:outputText value="Click Me!: {!count}"/> 
+            <apex:actionSupport event="onclick" action="{!incrementCounter}" rerender="counter" status="counterStatus"/> 
+        </apex:outputpanel> 
+        <apex:actionStatus id="counterStatus" startText=" (incrementing...)" stopText=" (done)"/> 
+        <br/><br/><br/> 
+        <apex:pageBlock > 
+            <apex:pageBlockButtons > 
+                <apex:commandButton value="Save" action="{!Save }"/> 
+                <apex:commandButton value="Cancel" action="{!Cancel }"/> 
+            </apex:pageBlockButtons> 
+            <apex:pageBlockSection > 
+                <apex:pageBlockSectionItem > 
+                    <apex:outputLabel >Contact First Name</apex:outputLabel> 
+                    <apex:inputField id="FirstName" value="{!editContact.firstname}"/> 
+                </apex:pageBlockSectionItem> 
+                <apex:inputField id="LastName" value="{!editContact.lastname}"> 
+                <apex:actionSupport event="onchange" action="{!lastnamechanged}" rerender="FirstName"/> 
+                 </apex:inputField>    
+                <apex:inputField id="Acoount" value="{!editContact.accountid}"/> 
+                <apex:inputField id="Email" value="{!editContact.email}"/> 
+                <apex:inputField id="Phone" value="{!editContact.phone}"> 
+                    <apex:actionSupport event="onchange" action="{!phonechanged}" rerender="pageMsg,pagemsg1"/> 
+                </apex:inputField> 
+            </apex:pageBlockSection> 
+        </apex:pageBlock> 
+    </apex:form> 
+</apex:page>
